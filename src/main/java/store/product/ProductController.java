@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 @FeignClient(name = "product", url = "http://product:8080")
-public interface productController {
+public interface ProductController {
     
     @PostMapping("/product")
-    public ResponseEntity<productOut> create(
-        @RequestBody productIn in
+    public ResponseEntity<ProductOut> create(
+        @RequestBody ProductIn in
     );
 
     @GetMapping("/product/{id}")
-    public ResponseEntity<productOut> findById(
+    public ResponseEntity<ProductOut> findById(
         @PathVariable("id") String id
     );
 
     @GetMapping("/product")
-    public ResponseEntity<List<productOut>> findAll();
+    public ResponseEntity<List<ProductOut>> findAll();
 
     @DeleteMapping("/product/{id}")
     public ResponseEntity<Void> delete(
